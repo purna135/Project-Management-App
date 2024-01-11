@@ -39,9 +39,9 @@ export default function NewProject({ onProjectAdd }) {
 
   return (
     <>
-      <Modal ref={modal}>
-        <h2>Invalid Inputs!</h2>
-        <p>Please fill all the inputs</p>
+      <Modal ref={modal} buttonCaption="Okay">
+        <h2 className="text-xl font-bold text-stone-700 my-4">Invalid Inputs!</h2>
+        <p className="text-stone-600 mb-4">Please fill all the inputs</p>
       </Modal>
 
       <div className="w-[35rem] mt-16">
