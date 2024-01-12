@@ -1,8 +1,16 @@
-export default function SelectedProject({ project, onDelete }) {
-  const formattedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
+import Tasks from './Tasks.jsx';
+
+export default function SelectedProject({
+  project,
+  onDelete,
+  onAddTask,
+  onDeleteTask,
+  tasks
+}) {
+  const formattedDate = new Date(project.dueDate).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
   });
 
   return (
@@ -14,7 +22,7 @@ export default function SelectedProject({ project, onDelete }) {
           </h1>
           <button
             className="text-stone-600 hover:text-stone-950"
-            onClick={() => onDelete(project.id)}
+            onClick={onDelete}
           >
             Delete
           </button>
@@ -24,7 +32,7 @@ export default function SelectedProject({ project, onDelete }) {
           {project.description}
         </p>
       </header>
-      TASKS
+      <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks} />
     </div>
   );
 }

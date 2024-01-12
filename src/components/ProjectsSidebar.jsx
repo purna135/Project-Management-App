@@ -1,10 +1,10 @@
-import Button from "./Button";
+import Button from './Button.jsx';
 
 export default function ProjectsSidebar({
   onStartAddProject,
   projects,
-  onProjectSelect,
-  selectedProject,
+  onSelectProject,
+  selectedProjectId,
 }) {
   return (
     <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
@@ -16,19 +16,19 @@ export default function ProjectsSidebar({
       </div>
       <ul className="mt-8">
         {projects.map((project) => {
-          let classes =
-            "w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800";
+          let cssClasses = "w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800";
 
-          if (project.id === selectedProject) {
-            classes += " bg-stone-800 text-stone-200";
+          if (project.id === selectedProjectId) {
+            cssClasses += ' bg-stone-800 text-stone-200'
           } else {
-            classes += " text-stone-400";
+            cssClasses += ' text-stone-400'
           }
+
           return (
             <li key={project.id}>
               <button
-                className={classes}
-                onClick={() => onProjectSelect(project.id)}
+                className={cssClasses}
+                onClick={() => onSelectProject(project.id)}
               >
                 {project.title}
               </button>
